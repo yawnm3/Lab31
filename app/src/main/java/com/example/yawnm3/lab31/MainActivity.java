@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewMessage;
     private float max = 48, min = 8;
     private float currentSize;
+    private float defaultSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         });
         textViewMessage = (TextView)findViewById(R.id.textViewMessage);
         currentSize = textViewMessage.getTextSize() / getScreenDensity();
+        defaultSize = currentSize;
     }
 
     @Override
@@ -107,7 +109,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void defaultSize()
     {
-        currentSize = textViewMessage.getTextSize();
+        currentSize = defaultSize;
+        textViewMessage.setTextSize(defaultSize);
     }
 
     public float getScreenDensity()
